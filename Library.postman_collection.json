@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "6955694f-74a7-4419-bdc1-787d0c1858e0",
+		"name": "Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34710842"
+	},
+	"item": [
+		{
+			"name": "User-register-login",
+			"item": [
+				{
+					"name": "Register-new-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"mohamed_hassan94\",\r\n    \"email\": \"mohabeh734@gmail.com\",\r\n    \"password\": \"@Mohabeh1994\",\r\n    \"role\": \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mohabeh734@gmail.com\",\r\n    \"password\": \"@Mohabeh1994\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Library",
+			"item": [
+				{
+					"name": "Create-new-book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Y2JiMGFhOGJhZDhjYzI3YjdmNmZkMiIsImlhdCI6MTcyNDYyNTA5MSwiZXhwIjoxNzI0ODg0MjkxfQ.YmBX1q4GqNSsTjgJvisZE2EBOrweDLr5NeRr1riyl_0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"author\": \"mohamed hassan\",\r\n    \"title\": \"grow up\",\r\n    \"description\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n    \"price\": 29.99,\r\n    \"category\": \"Crime\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/books/create",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"books",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-list-of-books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Y2JiMGFhOGJhZDhjYzI3YjdmNmZkMiIsImlhdCI6MTcyNDYyNTA5MSwiZXhwIjoxNzI0ODg0MjkxfQ.YmBX1q4GqNSsTjgJvisZE2EBOrweDLr5NeRr1riyl_0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/books/getbooks",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"books",
+								"getbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-book-by-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Y2I5MGI2N2EyNDllN2Y0YmM0NTQ4MiIsImlhdCI6MTcyNDYxNzAzNSwiZXhwIjoxNzI0ODc2MjM1fQ.Gfb3GBCcUa5rriT_tqEQ08jj2vS3PpgLDzOwGdAPprs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/books/66cba939961e03e0eed20340",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"books",
+								"66cba939961e03e0eed20340"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit-book-by-id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Y2JiMGFhOGJhZDhjYzI3YjdmNmZkMiIsImlhdCI6MTcyNDYyNTA5MSwiZXhwIjoxNzI0ODg0MjkxfQ.YmBX1q4GqNSsTjgJvisZE2EBOrweDLr5NeRr1riyl_0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\": 79.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/books/66cba939961e03e0eed20340",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"books",
+								"66cba939961e03e0eed20340"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-book-by-id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Y2JiMGFhOGJhZDhjYzI3YjdmNmZkMiIsImlhdCI6MTcyNDYyNTA5MSwiZXhwIjoxNzI0ODg0MjkxfQ.YmBX1q4GqNSsTjgJvisZE2EBOrweDLr5NeRr1riyl_0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/books/66cb95292c69349be154ccb7",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"books",
+								"66cb95292c69349be154ccb7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
