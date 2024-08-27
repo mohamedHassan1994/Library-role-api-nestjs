@@ -7,7 +7,6 @@ import { AuthModule } from './auth/auth.module';
 import { ThrottlerModule } from '@nestjs/throttler';
 import * as dotenv from 'dotenv';
 dotenv.config();
-console.log('mongoDB: ' + process.env.DB_URI);
 
 @Module({
   imports: [

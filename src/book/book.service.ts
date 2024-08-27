@@ -7,9 +7,9 @@ import {
 import { InjectModel } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { Book } from './schemas/book.schema';
-import { Query } from 'express-serve-static-core';
 import { User } from '../auth/schemas/user.schema';
 import { uploadImages } from 'src/utils/aws';
+import { GetListDto } from './dto/getList-book-dto';
 
 @Injectable()
 export class BookService {
@@ -18,24 +18,18 @@ export class BookService {
     private bookModel: mongoose.Model<Book>,
   ) {}
 
-  async findAll(query: Query): Promise<Book[]> {
-    const resPerPage = 2;
-    const currentPage = Number(query.page) || 1;
-    const skip = resPerPage * (currentPage - 1);
+  async findAll(query: GetListDto): Promise<Book[]> {
+    const { search, page, limit, sortBy, sortOrder } = query;
 
-    const keyword = query.keyword
-      ? {
-          title: {
-            $regex: query.keyword,
-            $options: 'i',
-          },
-        }
-      : {};
+    const filters = search ? { title: { $regex: search, $options: 'i' } } : {};
 
     const books = await this.bookModel
-      .find({ ...keyword })
-      .limit(resPerPage)
-      .skip(skip);
+      .find(filters)
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .sort({ [sortBy]: sortOrder })
+      .exec();
+
     return books;
   }
 
